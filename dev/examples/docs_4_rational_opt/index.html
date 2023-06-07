@@ -33,17 +33,17 @@ MOMENTUM: nothing GRADIENTTYPE: Nothing
   Type     Iteration         Primal           Dual       Dual Gap           Time         It/sec
 -------------------------------------------------------------------------------------------------
      I             1   1.000000e+00  -1.000000e+00   2.000000e+00   0.000000e+00            Inf
-    FW            10   1.407407e-01  -1.407407e-01   2.814815e-01   5.421621e-01   1.844467e+01
-    FW            20   6.842105e-02  -6.842105e-02   1.368421e-01   5.430820e-01   3.682685e+01
-    FW            30   4.521073e-02  -4.521073e-02   9.042146e-02   5.441621e-01   5.513063e+01
-    FW            40   3.376068e-02  -3.376068e-02   6.752137e-02   5.455047e-01   7.332659e+01
-    FW            50   2.693878e-02  -2.693878e-02   5.387755e-02   5.472004e-01   9.137420e+01
-    FW            60   2.241055e-02  -2.241055e-02   4.482109e-02   5.491681e-01   1.092562e+02
-    FW            70   1.918565e-02  -1.918565e-02   3.837129e-02   5.514733e-01   1.269327e+02
-    FW            80   1.677215e-02  -1.677215e-02   3.354430e-02   5.539483e-01   1.444178e+02
-    FW            90   1.489804e-02  -1.489804e-02   2.979609e-02   5.566928e-01   1.616690e+02
-    FW           100   1.340067e-02  -1.340067e-02   2.680135e-02   5.598029e-01   1.786343e+02
-  Last           101   1.314422e-02  -1.236767e-02   2.551189e-02   5.608505e-01   1.800836e+02
+    FW            10   1.407407e-01  -1.407407e-01   2.814815e-01   6.324764e-01   1.581087e+01
+    FW            20   6.842105e-02  -6.842105e-02   1.368421e-01   6.334877e-01   3.157125e+01
+    FW            30   4.521073e-02  -4.521073e-02   9.042146e-02   6.346733e-01   4.726842e+01
+    FW            40   3.376068e-02  -3.376068e-02   6.752137e-02   6.361375e-01   6.287949e+01
+    FW            50   2.693878e-02  -2.693878e-02   5.387755e-02   6.380244e-01   7.836691e+01
+    FW            60   2.241055e-02  -2.241055e-02   4.482109e-02   6.402205e-01   9.371771e+01
+    FW            70   1.918565e-02  -1.918565e-02   3.837129e-02   6.428050e-01   1.088977e+02
+    FW            80   1.677215e-02  -1.677215e-02   3.354430e-02   6.456543e-01   1.239053e+02
+    FW            90   1.489804e-02  -1.489804e-02   2.979609e-02   6.487858e-01   1.387207e+02
+    FW           100   1.340067e-02  -1.340067e-02   2.680135e-02   6.523590e-01   1.532898e+02
+  Last           101   1.314422e-02  -1.236767e-02   2.551189e-02   6.535784e-01   1.545339e+02
 -------------------------------------------------------------------------------------------------
 
 Output type of solution: BigFloat</code></pre><p>Another possible step-size rule is <code>rationalshortstep</code> which computes the step size by minimizing the smoothness inequality as <span>$\gamma_t=\frac{\langle \nabla f(x_t),x_t-v_t\rangle}{2L||x_t-v_t||^2}$</span>. However, as this step size depends on an upper bound on the Lipschitz constant <span>$L$</span> as well as the inner product with the gradient <span>$\nabla f(x_t)$</span>, both have to be of a rational type.</p><pre><code class="language-julia hljs">@time x, v, primal, dual_gap, trajectory = FrankWolfe.frank_wolfe(
@@ -65,16 +65,16 @@ MOMENTUM: nothing GRADIENTTYPE: Nothing
   Type     Iteration         Primal           Dual       Dual Gap           Time         It/sec
 -------------------------------------------------------------------------------------------------
      I             1   1.000000e+00  -1.000000e+00   2.000000e+00   0.000000e+00            Inf
-    FW            10   1.000000e-01  -1.000000e-01   2.000000e-01   3.259947e-01   3.067534e+01
-    FW            20   5.000000e-02  -5.000000e-02   1.000000e-01   3.269903e-01   6.116389e+01
-    FW            30   3.333333e-02  -3.333333e-02   6.666667e-02   3.282023e-01   9.140703e+01
-    FW            40   2.500000e-02  -2.500000e-02   5.000000e-02   3.297955e-01   1.212873e+02
-    FW            50   2.000000e-02  -2.000000e-02   4.000000e-02   3.317346e-01   1.507229e+02
-    FW            60   1.666667e-02  -1.666667e-02   3.333333e-02   3.340351e-01   1.796218e+02
-    FW            70   1.428571e-02  -1.428571e-02   2.857143e-02   3.366146e-01   2.079529e+02
-    FW            80   1.250000e-02  -1.250000e-02   2.500000e-02   3.395212e-01   2.356259e+02
-    FW            90   1.111111e-02  -1.111111e-02   2.222222e-02   3.427886e-01   2.625525e+02
-    FW           100   1.000000e-02   1.000000e-02   1.889162e-78   3.465400e-01   2.885670e+02
-  Last           100   1.000000e-02   1.000000e-02   2.159042e-78   3.473994e-01   2.878532e+02
+    FW            10   1.000000e-01  -1.000000e-01   2.000000e-01   3.611596e-01   2.768859e+01
+    FW            20   5.000000e-02  -5.000000e-02   1.000000e-01   3.622824e-01   5.520556e+01
+    FW            30   3.333333e-02  -3.333333e-02   6.666667e-02   3.636678e-01   8.249287e+01
+    FW            40   2.500000e-02  -2.500000e-02   5.000000e-02   3.654482e-01   1.094546e+02
+    FW            50   2.000000e-02  -2.000000e-02   4.000000e-02   3.675981e-01   1.360181e+02
+    FW            60   1.666667e-02  -1.666667e-02   3.333333e-02   3.701269e-01   1.621066e+02
+    FW            70   1.428571e-02  -1.428571e-02   2.857143e-02   3.730603e-01   1.876372e+02
+    FW            80   1.250000e-02  -1.250000e-02   2.500000e-02   3.763410e-01   2.125732e+02
+    FW            90   1.111111e-02  -1.111111e-02   2.222222e-02   3.803925e-01   2.365977e+02
+    FW           100   1.000000e-02   1.000000e-02   1.889162e-78   3.845283e-01   2.600589e+02
+  Last           100   1.000000e-02   1.000000e-02   2.159042e-78   3.854844e-01   2.594138e+02
 -------------------------------------------------------------------------------------------------
-  0.858766 seconds (1.27 M allocations: 70.522 MiB, 8.67% gc time, 96.22% compilation time)</code></pre><p>Note: at the last step, we exactly close the gap, finding the solution 1//n * ones(n)</p><hr/><p><em>This page was generated using <a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a>.</em></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../docs_3_matrix_completion/">« Matrix Completion</a><a class="docs-footer-nextpage" href="../docs_5_blended_cg/">Blended Conditional Gradients »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.24 on <span class="colophon-date" title="Tuesday 6 June 2023 16:45">Tuesday 6 June 2023</span>. Using Julia version 1.6.7.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+  0.867053 seconds (1.27 M allocations: 70.412 MiB, 96.49% compilation time)</code></pre><p>Note: at the last step, we exactly close the gap, finding the solution 1//n * ones(n)</p><hr/><p><em>This page was generated using <a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a>.</em></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../docs_3_matrix_completion/">« Matrix Completion</a><a class="docs-footer-nextpage" href="../docs_5_blended_cg/">Blended Conditional Gradients »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.24 on <span class="colophon-date" title="Wednesday 7 June 2023 20:53">Wednesday 7 June 2023</span>. Using Julia version 1.6.7.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

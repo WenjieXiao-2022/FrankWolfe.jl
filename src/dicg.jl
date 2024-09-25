@@ -126,13 +126,13 @@ function decomposition_invariant_conditional_gradient(
     gamma = one(phi)
 
     if lazy
-		if extra_vertex_storage === nothing
-			v = compute_extreme_point(lmo, gradient, lazy = lazy)
-			pre_computed_set = [v]
-		else
-			pre_computed_set = extra_vertex_storage
-		end
+	if extra_vertex_storage === nothing
+	   v = compute_extreme_point(lmo, gradient, lazy = lazy)
+	   pre_computed_set = [v]
+	else
+	   pre_computed_set = extra_vertex_storage
 	end
+    end
 
     if linesearch_workspace === nothing
         linesearch_workspace = build_linesearch_workspace(line_search, x, gradient)
